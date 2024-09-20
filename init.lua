@@ -19,13 +19,17 @@ vim.opt.autoindent = true
 vim.opt.wrap = true
 vim.g.have_nerd_font = true
 
+vim.g.mapleader = " "
+
 -- the lazy plugin installer
 require("config.lazy")
 require("config.lsp-zero")
 require("config.cmp")
+require("config.snippy")
+require("config.telescope")
 
 vim.opt.termguicolors = true
-vim.cmd.colorscheme('tokyonight')
+vim.cmd.colorscheme "catppuccin"
 
 
 

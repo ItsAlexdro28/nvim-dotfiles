@@ -25,13 +25,19 @@ vim.g.maplocalleader = "\\"
 require("lazy").setup({
   spec = {
     -- import your plugins
-    {'folke/tokyonight.nvim'},
+    { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
     {'VonHeikemen/lsp-zero.nvim', branch = 'v4.x'},
     {'neovim/nvim-lspconfig'},
     {'hrsh7th/cmp-nvim-lsp'},
     {'hrsh7th/nvim-cmp'},
+    {'dcampos/nvim-snippy'},
+    {'dcampos/cmp-snippy'},
+    {'honza/vim-snippets'},
     {'williamboman/mason.nvim'},
     {'williamboman/mason-lspconfig.nvim'},
+    {'nvim-treesitter/nvim-treesitter'},
+    {'nvim-lua/plenary.nvim'},
+    {'nvim-telescope/telescope.nvim'},
     { import = "plugins" },
   },
   -- Configure any other settings here. See the documentation for more details.

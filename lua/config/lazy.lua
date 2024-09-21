@@ -38,6 +38,27 @@ require("lazy").setup({
     {'nvim-treesitter/nvim-treesitter'},
     {'nvim-lua/plenary.nvim'},
     {'nvim-telescope/telescope.nvim'},
+    {'smolck/command-completion.nvim'},
+    {
+      "nvim-neo-tree/neo-tree.nvim",
+      branch = "v3.x",
+      dependencies = {
+        "nvim-lua/plenary.nvim",
+        "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+        "MunifTanjim/nui.nvim",
+        -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+      }
+    },
+    {
+      'nvim-lualine/lualine.nvim',
+      dependencies = { 'nvim-tree/nvim-web-devicons' }
+    },  
+    {
+      'goolord/alpha-nvim',
+      config = function ()
+          require'alpha'.setup(require'alpha.themes.dashboard'.config)
+      end
+    },
     { import = "plugins" },
   },
   -- Configure any other settings here. See the documentation for more details.

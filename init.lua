@@ -21,15 +21,20 @@ vim.g.have_nerd_font = true
 
 vim.g.mapleader = " "
 
--- the lazy plugin installer
+-- all the config files
 require("config.lazy")
 require("config.lsp-zero")
 require("config.cmp")
 require("config.snippy")
 require("config.telescope")
+require("config.command")
+require("config.lualine")
 
 vim.opt.termguicolors = true
 vim.cmd.colorscheme "catppuccin"
+
+vim.api.nvim_create_user_command('Nt', 'Neotree right', {})
+
 
 
 

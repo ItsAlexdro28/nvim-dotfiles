@@ -31,3 +31,13 @@ require('mason-lspconfig').setup({
     end,
   },
 })
+
+-- Customize LSP diagnostics
+vim.diagnostic.config({
+  virtual_text = {
+    severity = { min = vim.diagnostic.severity.WARN },  -- Ignore hints like spelling suggestions
+  },
+  float = {
+    severity = { min = vim.diagnostic.severity.WARN },  -- Same for floating windows
+  },
+})

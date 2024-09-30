@@ -75,6 +75,12 @@ local cmp_action = require('lsp-zero').cmp_action()
   require('lspconfig')['harper_ls'].setup {
     capabilities = capabilities
   }
-  require('lspconfig')['jdtls'].setup {
+   require('lspconfig')['jdtls'].setup {
+    capabilities = capabilities
+  }
+ require('lspconfig')['vtsls'].setup {
+    capabilities = capabilities
+  }
+ require('lspconfig')['emmet_language_server'].setup {
     capabilities = capabilities
   }

@@ -84,6 +84,6 @@ local cmp_action = require('lsp-zero').cmp_action()
   require('lspconfig')['vtsls'].setup {
     capabilities = capabilities
   }
-  require('lspconfig')['emmet_languaje_server'].setup {
+  require('lspconfig')['emmet_language_server'].setup {
     capabilities = capabilities
   }

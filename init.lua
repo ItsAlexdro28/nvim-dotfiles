@@ -16,9 +16,8 @@ vim.opt.mouse = 'a'
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 vim.opt.autoindent = true
-vim.opt.wrap = true
+vim.opt.wrap = false
 vim.g.have_nerd_font = true
-vim.o.warp = false
 
 vim.g.mapleader = " "
 

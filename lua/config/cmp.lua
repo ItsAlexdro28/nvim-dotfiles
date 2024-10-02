@@ -72,7 +72,7 @@ local cmp_action = require('lsp-zero').cmp_action()
   require('lspconfig')['lua_ls'].setup {
     capabilities = capabilities
   }
-  require('lspconfig')['harper_ls'].setup {
+  require('lspconfig')['biome'].setup {
     capabilities = capabilities
   }
    require('lspconfig')['jdtls'].setup {
@@ -82,5 +82,8 @@ local cmp_action = require('lsp-zero').cmp_action()
     capabilities = capabilities
   }
  require('lspconfig')['emmet_language_server'].setup {
+    capabilities = capabilities
+  }
+  require('lspconfig')['harper_ls'].setup {
     capabilities = capabilities
   }

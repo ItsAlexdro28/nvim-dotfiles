@@ -11,6 +11,8 @@ all taken from reddit suggestions, yt videos and more
 - A Nerd Font
 - cmake
 - git
+- python
+- gcc
 
 ## Keybindings
 

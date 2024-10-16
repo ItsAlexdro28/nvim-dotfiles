@@ -24,6 +24,7 @@ vim.g.mapleader = " "
 
 -- all the config files
 require("config.lazy")
+require('java').setup()
 require("config.lsp-zero")
 require("config.cmp")
 require("config.snippy")

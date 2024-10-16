@@ -75,9 +75,9 @@ local cmp_action = require('lsp-zero').cmp_action()
   require('lspconfig')['biome'].setup {
     capabilities = capabilities
   }
-   require('lspconfig')['jdtls'].setup {
-    capabilities = capabilities
-  }
+--   require('lspconfig')['jdtls'].setup {
+--    capabilities = capabilities
+--  }
  require('lspconfig')['vtsls'].setup {
     capabilities = capabilities
   }

@@ -141,6 +141,15 @@ require("lazy").setup({
      	}
     	}
 	},
+	{
+  		"rbong/vim-flog",
+  		lazy = true,
+  		cmd = { "Flog", "Flogsplit", "Floggit" },
+  		dependencies = {
+    		"tpope/vim-fugitive",
+  		},
+	},
+	{'nvim-java/nvim-java'},
 	{ import = "plugins" },
   },
   -- Configure any other settings here. See the documentation for more details.

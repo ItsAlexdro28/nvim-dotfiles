@@ -75,9 +75,22 @@ local cmp_action = require('lsp-zero').cmp_action()
   require('lspconfig')['biome'].setup {
     capabilities = capabilities
   }
---   require('lspconfig')['jdtls'].setup {
---    capabilities = capabilities
---  }
+   require('lspconfig')['jdtls'].setup {
+    capabilities = capabilities,
+	settings = {
+	    java = {
+	      configuration = {
+	        runtimes = {
+	          {
+	            name = "JavaSE-21",
+	            path = "/opt/jdk-21",
+	            default = true,
+	          }
+	        }
+	      }
+	    }
+	  }
+  }
  require('lspconfig')['vtsls'].setup {
     capabilities = capabilities
   }
@@ -85,5 +98,8 @@ local cmp_action = require('lsp-zero').cmp_action()
     capabilities = capabilities
   }
   require('lspconfig')['harper_ls'].setup {
+    capabilities = capabilities
+  }
+  require('lspconfig')['pyright'].setup {
     capabilities = capabilities
   }

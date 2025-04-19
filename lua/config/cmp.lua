@@ -103,3 +103,9 @@ local cmp_action = require('lsp-zero').cmp_action()
   require('lspconfig')['pyright'].setup {
     capabilities = capabilities
   }
+  require('lspconfig')['stimulus_ls'].setup {
+    capabilities = capabilities
+  }
+  require('lspconfig')['tailwindcss'].setup {
+    capabilities = capabilities
+  }

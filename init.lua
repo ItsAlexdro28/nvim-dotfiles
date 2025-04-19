@@ -26,6 +26,7 @@ vim.g.mapleader = " "
 require("config.lazy")
 require('java').setup()
 require("config.lsp-zero")
+require("config.treesitter")
 require("config.cmp")
 require("config.snippy")
 require("config.telescope")
@@ -34,6 +35,13 @@ require("config.lualine")
 
 vim.opt.termguicolors = true
 vim.cmd.colorscheme "catppuccin"
+
+-- change blade.php files to be "html"
+vim.filetype.add({
+  pattern = {
+    ['.*%.blade%.php'] = 'html',
+  }
+})
 
 vim.api.nvim_create_user_command('Nt', 'Neotree right', {})
 

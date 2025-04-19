@@ -68,6 +68,7 @@ require("lazy").setup({
   		},
 	},
 	{'nvim-java/nvim-java'},
+	{'jwalton512/vim-blade'},
 	{ import = "plugins" },
   },
   -- Configure any other settings here. See the documentation for more details.

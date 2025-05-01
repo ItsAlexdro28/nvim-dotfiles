@@ -69,43 +69,47 @@ local cmp_action = require('lsp-zero').cmp_action()
   -- Set up lspconfig.
   local capabilities = require('cmp_nvim_lsp').default_capabilities()
   -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
+  --
   require('lspconfig')['lua_ls'].setup {
-    capabilities = capabilities
-  }
-  require('lspconfig')['biome'].setup {
-    capabilities = capabilities
-  }
-   require('lspconfig')['jdtls'].setup {
     capabilities = capabilities,
-	settings = {
-	    java = {
-	      configuration = {
-	        runtimes = {
-	          {
-	            name = "JavaSE-21",
-	            path = "/opt/jdk-21",
-	            default = true,
-	          }
-	        }
-	      }
-	    }
-	  }
+    filetypes = { "lua" }
   }
- require('lspconfig')['vtsls'].setup {
-    capabilities = capabilities
+  
+  require('lspconfig')['biome'].setup {
+    capabilities = capabilities,
+    filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact", "json" }
   }
- require('lspconfig')['emmet_language_server'].setup {
-    capabilities = capabilities
+  
+  require('lspconfig')['jdtls'].setup {
+    filetypes = { "java" }
   }
-  require('lspconfig')['harper_ls'].setup {
-    capabilities = capabilities
+  
+  require('lspconfig')['vtsls'].setup {
+    capabilities = capabilities,
+    filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact" }
   }
+  
+  require('lspconfig')['emmet_language_server'].setup {
+    capabilities = capabilities,
+    filetypes = { "html", "css", "javascriptreact", "typescriptreact" }
+  }
+  
   require('lspconfig')['pyright'].setup {
-    capabilities = capabilities
+    capabilities = capabilities,
+    filetypes = { "python" }
   }
+  
   require('lspconfig')['stimulus_ls'].setup {
-    capabilities = capabilities
+    capabilities = capabilities,
+    filetypes = { "javascript", "typescript", "html", "erb" }
   }
+  
   require('lspconfig')['tailwindcss'].setup {
-    capabilities = capabilities
+    capabilities = capabilities,
+    filetypes = { "html", "javascript", "typescript", "javascriptreact", "typescriptreact", "svelte", "vue" }
+  }
+  
+  require('lspconfig')['intelephense'].setup {
+    capabilities = capabilities,
+    filetypes = { "php" }
   }

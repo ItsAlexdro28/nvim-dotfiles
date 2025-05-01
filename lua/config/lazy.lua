@@ -24,51 +24,86 @@ vim.g.maplocalleader = "\\"
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
-    -- import your plugins
-    { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-    {'VonHeikemen/lsp-zero.nvim', branch = 'v4.x'},
-    {'neovim/nvim-lspconfig'},
-    {'hrsh7th/cmp-nvim-lsp'},
-    {'hrsh7th/nvim-cmp'},
-    {'dcampos/nvim-snippy'},
-    {'dcampos/cmp-snippy'},
-    {'honza/vim-snippets'},
-    {'williamboman/mason.nvim'},
-    {'williamboman/mason-lspconfig.nvim'},
-    {'nvim-treesitter/nvim-treesitter'},
-    {'nvim-lua/plenary.nvim'},
-    {'nvim-telescope/telescope.nvim'},
-    {'smolck/command-completion.nvim'},
-    {
-      "nvim-neo-tree/neo-tree.nvim",
-      branch = "v3.x",
-      dependencies = {
-        "nvim-lua/plenary.nvim",
-        "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-        "MunifTanjim/nui.nvim",
-        -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
-      }
+
+  -- 🌈 Theme: load immediately for startup colors
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+
+  -- ⚙️ LSP Setup via lsp-zero (wraps lspconfig, mason, etc.)
+  { 'VonHeikemen/lsp-zero.nvim', branch = 'v4.x' },
+  { 'hrsh7th/nvim-cmp', event = "InsertEnter" },  -- lazy load on insert
+  { 'dcampos/nvim-snippy', lazy = true },
+  { 'dcampos/cmp-snippy', lazy = true },
+  { 'hrsh7th/cmp-nvim-lsp' },
+  { 'williamboman/mason-lspconfig.nvim' },
+  { 'williamboman/mason.nvim', cmd = "Mason" },  -- load only when using :Mason
+
+  -- 🌳 Syntax Highlighting
+  {
+    'nvim-treesitter/nvim-treesitter',
+    build = ":TSUpdate",
+    event = "BufReadPost"
+  },
+
+  -- 🔎 Telescope fuzzy finder
+  {
+    'nvim-telescope/telescope.nvim',
+    cmd = "Telescope",
+    dependencies = { 'nvim-lua/plenary.nvim' }
+  },
+
+  -- 🧠 Command completion (remove if not useful)
+  {
+    'gelguy/wilder.nvim'
+  },
+
+  -- 📁 File Explorer
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    cmd = "Neotree",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons",
+      "MunifTanjim/nui.nvim",
+    }
+  },
+
+  -- 📊 Statusline
+  {
+    'nvim-lualine/lualine.nvim',
+    event = "VeryLazy",
+    dependencies = { 'nvim-tree/nvim-web-devicons' }
+  },
+
+  -- 🎉 Startup dashboard
+  {
+    'goolord/alpha-nvim',
+    event = "VimEnter",
+    config = function ()
+      require'alpha'.setup(require'alpha.themes.dashboard'.config)
+    end
+  },
+
+  -- 🌀 Git log viewer
+  {
+    "rbong/vim-flog",
+    lazy = true,
+    cmd = { "Flog", "Flogsplit", "Floggit" },
+    dependencies = {
+      "tpope/vim-fugitive",
     },
-    {
-      'nvim-lualine/lualine.nvim',
-      dependencies = { 'nvim-tree/nvim-web-devicons' }
-    },  
-    {
-      'goolord/alpha-nvim',
-      config = function ()
-          require'alpha'.setup(require'alpha.themes.dashboard'.config)
-      end
-    },
-	{
-  		"rbong/vim-flog",
-  		lazy = true,
-  		cmd = { "Flog", "Flogsplit", "Floggit" },
-  		dependencies = {
-    		"tpope/vim-fugitive",
-  		},
-	},
-	{'nvim-java/nvim-java'},
-	{'jwalton512/vim-blade'},
+  },
+
+  -- ⚙️ Optional Java plugin (only load when needed)
+  {
+    'nvim-java/nvim-java',
+    ft = { "java" }
+  },
+
+  -- 🧩 Blade template syntax
+  {
+    'jwalton512/vim-blade',
+    ft = { "blade", "php" }
+  },
 	{ import = "plugins" },
   },
   -- Configure any other settings here. See the documentation for more details.

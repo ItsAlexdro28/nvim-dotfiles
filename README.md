@@ -13,6 +13,7 @@ all taken from reddit suggestions, yt videos and more
 - git
 - python
 - gcc
+- unzip
 
 ## Keybindings
 

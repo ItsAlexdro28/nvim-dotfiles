@@ -30,6 +30,7 @@ require("lazy").setup({
 
   -- ⚙️ LSP Setup via lsp-zero (wraps lspconfig, mason, etc.)
   { 'VonHeikemen/lsp-zero.nvim', branch = 'v4.x' },
+  { 'neovim/nvim-lspconfig' },
   { 'hrsh7th/nvim-cmp', event = "InsertEnter" },  -- lazy load on insert
   { 'dcampos/nvim-snippy', lazy = true },
   { 'dcampos/cmp-snippy', lazy = true },
@@ -41,7 +42,10 @@ require("lazy").setup({
   {
     'nvim-treesitter/nvim-treesitter',
     build = ":TSUpdate",
-    event = "BufReadPost"
+	lazy = false,
+	config = function()
+	require("config.treesitter")
+	end
   },
 
   -- 🔎 Telescope fuzzy finder
@@ -104,8 +108,21 @@ require("lazy").setup({
     'jwalton512/vim-blade',
     ft = { "blade", "php" }
   },
+
+
+  -- Markdown files
+  {
+      'MeanderingProgrammer/render-markdown.nvim',
+      dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-mini/mini.nvim' },            -- if you use the mini.nvim suite
+      -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-mini/mini.icons' },        -- if you use standalone mini plugins
+      -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+      ---@module 'render-markdown'
+      ---@type render.md.UserConfig
+      opts = {},
+  },
 	{ import = "plugins" },
   },
+
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
   install = { colorscheme = { "habamax" } },

@@ -66,50 +66,100 @@ local cmp_action = require('lsp-zero').cmp_action()
     matching = { disallow_symbol_nonprefix_matching = false }
   })
 
-  -- Set up lspconfig.
-  local capabilities = require('cmp_nvim_lsp').default_capabilities()
-  -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-  --
-  require('lspconfig')['lua_ls'].setup {
-    capabilities = capabilities,
-    filetypes = { "lua" }
-  }
-  
-  require('lspconfig')['biome'].setup {
-    capabilities = capabilities,
-    filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact", "json" }
-  }
-  
-  require('lspconfig')['jdtls'].setup {
-    filetypes = { "java" }
-  }
-  
-  require('lspconfig')['vtsls'].setup {
-    capabilities = capabilities,
-    filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact" }
-  }
-  
-  require('lspconfig')['emmet_language_server'].setup {
-    capabilities = capabilities,
-    filetypes = { "html", "css", "javascriptreact", "typescriptreact" }
-  }
-  
-  require('lspconfig')['pyright'].setup {
-    capabilities = capabilities,
-    filetypes = { "python" }
-  }
-  
-  require('lspconfig')['stimulus_ls'].setup {
-    capabilities = capabilities,
-    filetypes = { "javascript", "typescript", "html", "erb" }
-  }
-  
-  require('lspconfig')['tailwindcss'].setup {
-    capabilities = capabilities,
-    filetypes = { "html", "javascript", "typescript", "javascriptreact", "typescriptreact", "svelte", "vue" }
-  }
-  
-  require('lspconfig')['intelephense'].setup {
-    capabilities = capabilities,
-    filetypes = { "php" }
-  }
+-- Capabilities (still needed for cmp)
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+-- Lua
+vim.lsp.config("lua_ls", {
+  capabilities = capabilities,
+  filetypes = { "lua" },
+})
+
+-- Biome
+vim.lsp.config("biome", {
+  capabilities = capabilities,
+  filetypes = {
+    "javascript",
+    "typescript",
+    "javascriptreact",
+    "typescriptreact",
+    "json",
+  },
+})
+
+-- Java
+vim.lsp.config("jdtls", {
+  filetypes = { "java" },
+})
+
+-- VTSLS
+vim.lsp.config("vtsls", {
+  capabilities = capabilities,
+  filetypes = {
+    "javascript",
+    "typescript",
+    "javascriptreact",
+    "typescriptreact",
+  },
+})
+
+-- Emmet
+vim.lsp.config("emmet_language_server", {
+  capabilities = capabilities,
+  filetypes = {
+    "html",
+    "css",
+    "javascriptreact",
+    "typescriptreact",
+  },
+})
+
+-- Python
+vim.lsp.config("pyright", {
+  capabilities = capabilities,
+  filetypes = { "python" },
+})
+
+-- Stimulus
+vim.lsp.config("stimulus_ls", {
+  capabilities = capabilities,
+  filetypes = {
+    "javascript",
+    "typescript",
+    "html",
+    "erb",
+  },
+})
+
+-- Tailwind
+vim.lsp.config("tailwindcss", {
+  capabilities = capabilities,
+  filetypes = {
+    "html",
+    "javascript",
+    "typescript",
+    "javascriptreact",
+    "typescriptreact",
+    "svelte",
+    "vue",
+  },
+})
+
+-- PHP
+vim.lsp.config("intelephense", {
+  capabilities = capabilities,
+  filetypes = { "php" },
+})
+
+-- Enable all servers
+vim.lsp.enable({
+  "lua_ls",
+  "biome",
+  "jdtls",
+  "vtsls",
+  "emmet_language_server",
+  "pyright",
+  "stimulus_ls",
+  "tailwindcss",
+  "intelephense",
+})

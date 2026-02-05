@@ -18,7 +18,7 @@ vim.opt.termguicolors = true
 
 -- ▶ Load Plugins & config files (using Lazy.nvim)
 require("config.lazy")
-require('java').setup()
+-- require('java').setup()
 require("config.lsp-zero")
 require("config.treesitter")
 require("config.cmp")

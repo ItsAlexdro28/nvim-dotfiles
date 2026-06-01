@@ -32,8 +32,8 @@ require("lazy").setup({
   { 'VonHeikemen/lsp-zero.nvim', branch = 'v4.x' },
   { 'neovim/nvim-lspconfig' },
   { 'hrsh7th/nvim-cmp', event = "InsertEnter" },  -- lazy load on insert
-  { 'dcampos/nvim-snippy', lazy = true },
-  { 'dcampos/cmp-snippy', lazy = true },
+  { 'dcampos/nvim-snippy' },
+  { 'dcampos/cmp-snippy' },
   { 'hrsh7th/cmp-nvim-lsp' },
   { 'williamboman/mason-lspconfig.nvim' },
   { 'williamboman/mason.nvim', cmd = "Mason" },  -- load only when using :Mason
@@ -120,6 +120,23 @@ require("lazy").setup({
       ---@type render.md.UserConfig
       opts = {},
   },
+
+  -- Obsidian
+  {
+     'obsidian-nvim/obsidian.nvim',
+     version = "*",
+	 ft = "markdown",
+	 opts = {
+     legacy_commands = false, -- this will be removed in the next major release
+     workspaces = {
+       {
+         name = "personal",
+         path = "~/Documents/Obsidian/Gemnotes",
+       },
+     },
+  },
+  },
+
 	{ import = "plugins" },
   },
 

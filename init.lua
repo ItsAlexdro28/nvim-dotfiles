@@ -26,6 +26,7 @@ require("config.snippy")
 require("config.telescope")
 require("config.wilder")
 require("config.lualine")
+-- require("config.obsidian")
 
 -- ▶ Theme
 vim.cmd.colorscheme "catppuccin"
